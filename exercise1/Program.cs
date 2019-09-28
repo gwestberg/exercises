@@ -111,6 +111,63 @@ namespace exercise1
         static void exercise8()
         {
             //Banksimulatorn
+            int choice=0;
+            int accBalance=0;
+            bool loopProgram= true;
+
+            System.Console.WriteLine("Welcome to your virtual bank.");
+            while(loopProgram == true)
+            {
+            System.Console.WriteLine("\n[1] Deposit");
+            System.Console.WriteLine("[2] Withdraw");
+            System.Console.WriteLine("[3] Check Account Balance");
+            System.Console.WriteLine("[4] Quit");
+
+                try
+                {
+                    choice= Convert.ToInt32 (Console.ReadLine());
+                }
+                catch
+                {
+                    System.Console.WriteLine("Wrong input, you can only write numbers associated with an option.\n");
+                }
+            
+                    switch (choice)
+                    {
+                        case 1:
+                        {
+                            System.Console.Write("\nHow much you you like to deposit?: ");
+                            int deposit=Convert.ToInt32(Console.ReadLine());
+                            accBalance += deposit;
+                        }break;
+
+                        case 2:
+                        {
+                            System.Console.Write("\nHow much you you like to withdraw?: ");
+                            int Withdraw=Convert.ToInt32(Console.ReadLine());
+                            if(accBalance>=Withdraw)
+                            {
+                            accBalance -= Withdraw;
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("You don't have enough money on your account to withdraw that amount.");
+                            }
+                        }break;
+
+                        case 3:
+                        {
+                            System.Console.WriteLine("\nYou have: {0} on your account",accBalance);
+                        }break;
+
+                        case 4:
+                        {
+                            return;
+                        }
+                    }
+            }
+
+
         }
 
         static void exercise9()
